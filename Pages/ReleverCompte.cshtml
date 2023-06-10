@@ -1,0 +1,32 @@
+﻿@page
+@using GesBancaire.Models
+@model CompteViewModel
+@{
+    ViewData["Title"] = "Afficher un Relever du compte";
+}
+
+<div class="container">
+    <h2 style="color:lightcoral ; font-weight:100; ">Relevé du compte choisi</h2>
+
+    <form method="post">
+        <label style="color : indianred; font-size: 16px; " for="compteId">Sélectionner un compte:</label>
+
+            <select name="compteId" id="compteId">
+                @foreach (var compte in Model.Comptes)
+                {
+                    <option value="@compte.CompteId">@compte.CompteId</option>
+                }
+            </select>
+
+       
+        <button type="submit" style="background-color : pink">Submit</button>
+    </form>
+    <br />
+    
+        <h3>Information du Compte :</h3>
+        <p>Nom: Zili </p>
+        <p>Prénom: Hassan</p>
+        <p>Solde: 32000</p>
+   
+
+</div>

@@ -1,0 +1,37 @@
+﻿@page
+@using GesBancaire.Models
+@model MouvementViewModel
+@{
+    ViewData["Title"] = "Faire une Operation ";
+}
+<div class="Container">
+<form method="post">
+    <h2 style="color:lightcoral ; font-weight:100;">Faire une operation </h2>
+
+    <label style="color : indianred" for="compteId">Sélectionner un compte:</label>
+    
+            <select name="compteId" id="compteId">
+                @foreach (var compte in Model.Comptes)
+                {
+                    <option value="@compte.CompteId">@compte.CompteId</option>
+                }
+            </select>
+   
+    <br />
+    <label for="operation">Sélectionner une Operation:</label>
+    <div>
+        <input type="radio" id="credit" name="operation" value="credit">
+        <label for="credit">Credit</label>
+    </div>
+    <div>
+        <input type="radio" id="debit" name="operation" value="debit">
+        <label for="debit">Debit</label>
+    </div>
+   
+
+    <label for="montant">Montant:</label>
+    <input type="text" id="montant" name="montant">
+
+    <button type="submit" style="background-color : pink">Submit</button>
+</form>
+</div>
